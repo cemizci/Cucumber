@@ -153,4 +153,28 @@ public class TestOtomasyonuStepDefinitions {
     public void basariliOlarakGirisYapilamadiginiTestEder() {
         Assertions.assertTrue(testOtomasyonuPage.loginPageEmailBox.isDisplayed());
     }
+
+    @Then("email kutusuna listede verilen {string} degerini girer")
+    public void emailKutusunaListedeVerilenDegeriniGirer(String verilenEmail) {
+        testOtomasyonuPage.loginPageEmailBox.sendKeys(verilenEmail);
+    }
+
+    @And("password kutusuna listede verilen {string} degerini girer")
+    public void passwordKutusunaListedeVerilenDegeriniGirer(String verilenPassword) {
+        testOtomasyonuPage.loginPagePasswordInput.sendKeys(verilenPassword);
+    }
+
+    @Then("arama sonucunda {string} veya daha fazla urun bulunabildigini test eder")
+    public void aramaSonucundaVeyaDahaFazlaUrunBulunabildiginiTestEder(String belirtilenMiktarStr) {
+
+        int belirtilenMiktar = Integer.parseInt(belirtilenMiktarStr);
+
+        String aramaSonucYazısı = testOtomasyonuPage.aramaSonucYazıElementi.getText(); // "3 Products Found"
+
+        aramaSonucYazısı = aramaSonucYazısı.replaceAll("\\D", ""); // 3
+
+        int actualBulunanUrunSayısı = Integer.parseInt(aramaSonucYazısı);
+
+        Assertions.assertTrue(actualBulunanUrunSayısı >= belirtilenMiktar);
+    }
 }
