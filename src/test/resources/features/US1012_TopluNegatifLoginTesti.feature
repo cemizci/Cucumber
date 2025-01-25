@@ -1,6 +1,6 @@
 Feature: US1012 verilen gecersiz bilgilerle giris yapilamaz
 
-  @Negative
+
   Scenario Outline: TC18 Kullanici yanlis bilgilerle giris yapamamali
 
     Given kullanici "toURL" anasayfaya gider

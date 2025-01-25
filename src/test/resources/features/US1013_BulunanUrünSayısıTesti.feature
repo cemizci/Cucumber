@@ -1,6 +1,6 @@
 Feature: US1013 verilen urunler yeterince bulunabilmeli
 
-  @ProductCount
+
   Scenario Outline: TC19 kullanici verilen urunlerin verilen listedeki minumum sayi
   veya daha fazla bulunabildigini test eder
 
